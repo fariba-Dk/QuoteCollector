@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Materialize CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="./main_app/public/index.js"></script>
+    <title>Quote Collector - A little Push in the Right Path {% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <header id="header" class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <ul>
+            <li>
+              <a href="/" class="left brand-logo">&nbsp;&nbsp;QuoteCollector</a>
+            </li>
+          </ul>
+          <ul class="right">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'index' %}">Quotes</a></li>
+            <li><a href="{% url 'reviews' %}"></a>Reviews</li>
+          </ul>
+        </div>
+        <div>
+          <form action="#">
+            <select>
+              <option selected="selected" value>Menu</option>
+              <option value="/">Home</option>
+              <option value="/about">About</option>
+              <option value="/index">Quotes</option>
+              <option value="reviews">Reviews</option>
+            </select>
+          </form>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      {% block content %}
+      {% endblock %}
+    </main>
+    <div>
+      <button onClick="newQuote()">New Quote</button>
+    </div>
+    <button>
+      <a class="btn btn-main" href="/index/">Quote</a>
+    </button>
+    <footer class="page-footer">
+      <div class="right">
+        All Rights Reserved, &copy; 2021 Quote Collector &nbsp;
+      </div>
+    </footer>
+  </body>
+</html>
