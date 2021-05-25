@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h1>New Quote</h1>
+  <form action="" method="POST">
+
+  {% comment %} CSRF -cross site request forgery {% endcomment %}
+    {% csrf_token %}
+    {% {form.as_p} %}
+>
+<button class="btn" type="submit">Add Quote</button>
+
+
+  </form>
+
+{% endblock %}

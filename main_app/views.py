@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Quote
+import json
+from .forms import QuoteForm
+
 
 class Quote:
   def _init_(self, quote_type, description, date):
@@ -23,7 +26,17 @@ def index(request):
   return render(request, 'quotes/quotes_index.html', context)
 
 
+#REVIEW QUOTE
 def reviews(request):
   return render(request, 'reviews.html')
 
+
+#CREATE QUOTE
+def create_quote(request):
+  if request.method == 'GET':
+    form = QuoteForm()
+    context = {
+      'form': form
+    }
+    return render(request,'quotes/quotes_new.html', context)
 
