@@ -1,8 +1,57 @@
+{% extends 'base.html' %} {% block content %}
 
-{% extends 'base.html' %}
+<h1>Welcome to Quote Collector</h1>
 
-{% block content %}
+ <header id="header" class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <ul>
+            <li>
+              <a href="/" class="left brand-logo">&nbsp;&nbsp;QuoteCollector</a>
+            </li>
+          </ul>
+          <ul class="right">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'index' %}">Quotes</a></li>
+            <li><a href="{% url 'reviews' %}"></a>Reviews</li>
+          </ul>
+        </div>
+        <div>
+          <form action="#">
+            <select>
+              <option selected="selected" value>Menu</option>
+              <option value="/">Home</option>
+              <option value="/about">About</option>
+              <option value="/index">Quotes</option>
+              <option value="reviews">Reviews</option>
+            </select>
+          </form>
+        </div>
+      </nav>
+    </header>
+ <main id="quoteDisplay"class="container">{% block content %} {% endblock %}</main>
+    <div>
+      <button onClick="newQuote()">New Quote</button>
+    </div>
+    <button>
+      <a class="btn btn-main" href="/index/">Quote</a>
+    </button>
 
-  <h1>Welcome to Quote Collector</h1>
+<script>
+  function newQuote(){
+    let randomNum = Math.floor(Math.random() * quotes_arr.length)
+    document.getElementById('quoteDisplay').innerHTML = quotes_arr[randomNum]
+  }
 
+
+  document.getEventListiner('DOMContentLoaded', function () {
+    const choices = document.querySelectorAll('select');
+    const dates = document.querySelectorAll('.datepicker');
+
+    const choicesInstances = M.FormSelect.init(meals);
+    const dateInstances = M.Datepicker.init(dates, options);
+  });
+</script>
 {% endblock %}
+

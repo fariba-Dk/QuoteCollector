@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
                 ('theme', models.TextField(max_length=50)
                 ('content', models.TextField(max_length=100)),
                 ('description', models.TextField(max_length=250)),
-                ('date_added',models.DateField())
+                ('date',models.DateField())
                 )]
         )
     ]

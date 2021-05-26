@@ -12,8 +12,14 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <script src="./main_app/public/index.js"></script>
-    <title>Quote Collector - A little Push in the Right Path {% block title %}{% endblock %}</title>
+
+    <!-- Materialize JS -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>
+      Quote Collector - A little Push in the Right Path {% block title %}{%
+      endblock %}
+    </title>
   </head>
   <body>
     <header id="header" class="navbar-fixed">
@@ -45,10 +51,7 @@
       </nav>
     </header>
 
-    <main class="container">
-      {% block content %}
-      {% endblock %}
-    </main>
+    <main class="container">{% block content %} {% endblock %}</main>
     <div>
       <button onClick="newQuote()">New Quote</button>
     </div>
