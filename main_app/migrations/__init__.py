@@ -12,10 +12,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Quote',
             fields=[
-                ('theme', models.TextField(max_length=50)
-                ('content', models.TextField(max_length=100)),
-                ('description', models.TextField(max_length=250)),
+                ('theme', models.CharField(max_length=50),
+                ('author', models.CharField(max_length=100)),
+                ('content', models.TextField(max_length=250)),
                 ('date',models.DateField())
                 )]
         )
     ]
+

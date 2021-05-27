@@ -9,5 +9,5 @@ class QuoteForm(forms.ModelForm):
 class CategoryForm(forms.ModelForm):
   class Meta:
     model = Category
-    fields = ('choices',)
+    fields = ('category',)
 

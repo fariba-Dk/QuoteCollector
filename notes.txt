@@ -8,3 +8,21 @@ python3 manage.py runserver
 python3 manage.py makemigrations
 
 python3 manage.py migrate
+
+
+//https://stackoverflow.com/questions/739942/how-to-pass-an-array-in-django-to-a-template-and-use-it-with-javascript
+
+json_list = simplejson.dumps(YOUR_LIST)
+render_to_response(template_name, {'json_list': json_list})
+
+//In JS:
+var YOUR_JS_LIST = {{YOUR_LIST|safe}};
+
+from django.utils import simplejson
+json_list = simplejson.dumps(list)
+render_to_response(template_name, {'json_list': json_list})
+
+ def __str__(self):
+        return f'{self.theme}'
+ def __str__(self):
+        return f'{self.category}'
