@@ -1,64 +1,78 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Materialize CSS -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Compiled and minified CSS -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static './main.css' %}" />
 
-    <!-- Materialize JS -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>Quote Collector</title>
+    <title>QuoteCollector -{% block title %} {% endblock %}</title>
   </head>
   <body>
-    <header id="header" class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <ul>
-            <li>
-              <a href="/" class="left brand-logo">&nbsp;&nbsp;QuoteCollector</a>
-            </li>
-          </ul>
-          <ul class="right">
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'index' %}">Quotes</a></li>
-            <li><a href="{% url 'reviews' %}"></a>Reviews</li>
-          </ul>
-        </div>
-        <div>
-          <form action="#">
-            <select>
-              <option selected="selected" value>Menu</option>
-              <option value="/">Home</option>
-              <option value="/about">About</option>
-              <option value="/index">Quotes</option>
-              <option value="reviews">Reviews</option>
-            </select>
-          </form>
-        </div>
-      </nav>
-    </header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">QuoteCollector</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/about">About</a></li>
+          <li><a href="/quotes">Quotes</a></li>
+          <li><a href="/reviews">Reviews</a></li>
+        </ul
+      </div>
+    </nav>
+  <main>QuoteCollector</main>
+    {% comment %} <div class="parallax-container">
+      <div class="parallax">
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel porro
+          similique reiciendis tempora. Architecto hic pariatur reiciendis
+          commodi sint molestias, deleniti autem odit ea rerum aliquid
+          aspernatur quas optio blanditiis.
+        </p> {% endcomment %}
 
-    <main class="container">{% block content %} {% endblock %}</main>
-    <div>
-      <button onClick="newQuote()">New Quote</button>
+        <img src="images/parallax1.jpg" class="responsive-img" />
+      {% comment %} </div>
+    </div> {% endcomment %}
+    <div class="section white">
+      <div class="row container">
+        <h2 class="header">QuoteCollector</h2>
+        <p class="grey-text text-darken-3 lighten-3">
+          '"In the end, it\'s not the years in your life that count. It\'s the
+          life in your years." -Abraham Lincoln'
+        </p>
+        <p class="grey-text text-darken-3 lighten-3">
+          "'If life were predictable it would cease to be life and be without
+          flavor.' -Eleanor Roosevelt"
+        </p>
+      </div>
     </div>
-    <button>
-      <a class="btn btn-main" href="/index/">Quote</a>
-    </button>
+    {% comment %} <div class="parallax-container">
+      <div class="parallax">
+        <img src="images/parallax2.jpg" alt="" class="responsive-img" />
+      </div>
+    </div> {% endcomment %}
+    <main class="container">{% block content %}{% endblock %}</main>
+
     <footer class="page-footer">
       <div class="right">
-        All Rights Reserved, &copy; 2021 Quote Collector &nbsp;
+        All Rights Reserved, &copy; 2021 QuoteCollector &nbsp;
       </div>
     </footer>
+     <script src="{% static 'custom.js' %}"></script>
+    <script>
+     <!-- JQuery -->
+    <script>
+      src = 'https://code.jquery.com/jquery.com-3.3.1.min.js';
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
   </body>
 </html>

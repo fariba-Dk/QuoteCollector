@@ -1,17 +1,19 @@
 from django.db import models
 
 THEMES = (
-    ('F', 'Funny'),
-    ('I', 'Insprational'),
-    ('L', 'Love'),
-    ('A', 'Advice')
+    (1,'Funny'),
+    (2,'Insprational'),
+    (3,'Life'),
+    (4,'Advice'),
+    (5,'Personal Development'),
+    (6,'Rated-RRRRR')
 )
 class Quote(models.Model):
     theme = models.CharField(max_length=50)
     author = models.CharField(max_length=100)
     content= models.TextField(max_length=250)
     date = models.DateField()
-    image= models.ImageField()
+
 
     def __str__(self):
         return f'{self.theme} | {self.author}'
@@ -27,7 +29,6 @@ class Category(models.Model):
       # Model Methods do not require a migration
     def __str__(self):
         return f'{self.category}'
-
 
 
 # python3 -m venv .env

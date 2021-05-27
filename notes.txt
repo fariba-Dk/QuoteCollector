@@ -10,6 +10,95 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 
 
+~~~~~~~~~~~ quotes~~~~~~~~~
+
+quotes_arr=["'If life were predictable it would cease to be life and be without flavor.' -Eleanor Roosevelt",
+
+'"In the end, it\'s not the years in your life that count. It\'s the life in your years." -Abraham Lincoln',
+
+
+'"Life is a succession of lessons which must be lived to be understood." -Ralph Waldo Emerson',
+
+
+'"You will face many defeats in life, but never let yourself be defeated." -Maya Angelou',
+
+'"Never let the fear of striking out keep you from playing the game." -Babe Ruth',
+
+'"Life is never fair, and perhaps it is a good thing for most of us that it is not." -Oscar Wilde',
+
+'"The only impossible journey is the one you never begin." -Tony Robbins',
+
+'"In this life we cannot do great things. We can only do small things with great love." -Mother Teresa',
+'"Only a life lived for others is a life worthwhile." -Albert Einstein',
+'"The purpose of our lives is to be happy." -Dalai Lama',
+'"Life is what happens when you\'re busy making other plans." -John Lennon',
+'"You only live once, but if you do it right, once is enough." -Mae West',
+'"Live in the sunshine, swim the sea, drink the wild air." -Ralph Waldo Emerson',
+'"Go confidently in the direction of your dreams! Live the life you\'ve imagined." -Henry David Thoreau',
+'"The greatest glory in living lies not in never falling, but in rising every time we fall." -Nelson Mandela',
+'"Life is really simple, but we insist on making it complicated." -Confucius',
+'"May you live all the days of your life." -Jonathan Swift',
+'"Life itself is the most wonderful fairy tale." -Hans Christian Andersen',
+'"Do not let making a living prevent you from making a life." -John Wooden',
+'"Life is ours to be spent, not to be saved." -D. H. Lawrence',
+'"Keep smiling, because life is a beautiful thing and there\'s so much to smile about." -Marilyn Monroe',
+'"Life is a long lesson in humility." -James M. Barrie',
+
+'"In three words I can sum up everything I\'ve learned about life: it goes on." -Robert Frost',
+'"Love the life you live. Live the life you love." -Bob Marley',
+
+
+'"Life is either a daring adventure or nothing at all." -Helen Keller',
+
+
+'"You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose." -Dr. Seuss',
+
+
+
+
+'"Life is made of ever so many partings welded together." -Charles Dickens',
+
+
+
+
+
+'"Your time is limited, so don\'t waste it living someone else\'s life. Don\'t be trapped by dogma -- which is living with the results of other people\'s thinking." -Steve Jobs',
+
+
+
+
+
+
+
+
+'"Life is trying things to see if they work." -Ray Bradbury',
+'"Many of life\'s failures are people who did not realize how close they were to success when they gave up." -Thomas A. Edison'
+],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //https://stackoverflow.com/questions/739942/how-to-pass-an-array-in-django-to-a-template-and-use-it-with-javascript
 
 json_list = simplejson.dumps(YOUR_LIST)
@@ -29,3 +118,169 @@ render_to_response(template_name, {'json_list': json_list})
 
         fariba
         Al....21!
+
+css
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+#wrapper {
+  position: relative;
+  height: 100vh;
+  background: #000;
+  font-family: 'Comfortaa', cursive;
+}
+
+#canvas_container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+canvas {
+  display: block;
+}
+
+.text {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.81);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  user-select: none;
+  overflow: hidden;
+  display: flex;
+  align-items:center;
+}
+
+.text span {
+  color: #e7aa27;
+}
+
+.text .quoteText {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.text .quoteText span {
+  font-weight: 700;
+}
+
+.clickInfo {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: -80px;
+  z-index: 11;
+  cursor: pointer;
+  color: #F9B31C;
+  background-color: rgba(23, 23, 23, 0.9);
+  padding: 10px 0;
+  font-size: 20px;
+}
+
+.btn {
+  position: absolute;
+  bottom: 5%;
+  right: 0px;
+  transform: translateX(-50%);
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.7em;
+  background: transparent;
+  color: #F9B31C;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .3s;
+  z-index: 11;
+}
+
+.btn_works {
+  left: 100px;
+  right: unset;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #ffffff;
+  color: #2a2b2f;
+}
+
+@media only screen and (max-width:815px) {
+  .text {
+    font-size: 1.2rem;
+  }
+
+  .text span {
+    afont-size: 0.8rem !important;
+  }
+
+  .clickInfo {
+    font-size: 1rem;
+  }
+}
+
+~~~~~~~~
+<div id="wrapper">
+
+    <div id="canvas_container"></div>
+
+    <div class="text">
+        <p class="quoteText">“ Never memorize something that you can look
+            up.”<br><span style="font-style: italic; font-size: 1.4rem; color:#ED760D">#Stack Overflow</span></p>
+    </div>
+    <p class="clickInfo">click anywhere to start journey</p>
+
+    <img id="first" src="https://res.cloudinary.com/dbux8pdyi/image/upload/v1617739197/1_oya0j3_q5zrcc.jpg" style="display:none;">
+
+    <a href="https://codepen.io/collection/DxkYzq" target="_blank" class="btn btn_works">My Works</a>
+    <button class="btn" id="fullscr">Go Fullscreen</button>
+
+</div>
+
+       loadAsync("https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739205/8_uqve8h_jwwgba.mp4"),
+        loadAsync("https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739205/9_h3zaob_e6dnwa.mp4"),
+        loadAsync("https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739210/11_cr2uom_gv8fv9.mp4"),
+        loadAsync("https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739204/12q_i8przi_qawjjt.mp4"),
+        loadAsync("https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739199/13_kpzt8r_mrzw9i.mp4"),
+         loadAsync("https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/4_nqdsdn_boenrw.mp4"),
+        loadAsync("https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739195/5_xhz9of_fgsu7l.mp4"),
+        loadAsync("https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4"),
+       <video>
+        src="https://res.cloudinary.com/djhqtcjps/video/upload/v1616952169/Video%20svg%20filter/liquid33_i7u02p.mp4" type="video/mp4">
+        </video>
+
+
+    ]).then(result => {
+        webgl.texturesArray = result;
+        document.getElementById("wrapper").addEventListener("click", changeTexture, false);
+    });
+
+    async function loadAsync(url) {
+        let video = document.createElement("video");
+        video.muted = true;
+        video.loop = true;
+        video.playsinline = true;
+        video.crossOrigin = "anonymous";
+        video.src = url;
+        return new THREE.VideoTexture(video);
+    }
