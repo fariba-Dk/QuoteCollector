@@ -26,3 +26,6 @@ render_to_response(template_name, {'json_list': json_list})
         return f'{self.theme}'
  def __str__(self):
         return f'{self.category}'
+
+        fariba
+        Al....21!

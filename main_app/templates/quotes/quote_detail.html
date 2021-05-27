@@ -1,5 +1,4 @@
-{% extends 'base.html' %} {% block content %}
-
+{% extends 'base.html' %} {% block title %} {% endblock %}{% block content %}
 <h1>Quote Detail</h1>
 
 <div class="row">
@@ -101,7 +100,6 @@
 </div>
 
 <script>
-
   document.getEventListiner('DOMContentLoaded', function () {
     const choices = document.querySelectorAll('select');
     const dates = document.querySelectorAll('.datepicker');

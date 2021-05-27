@@ -11,6 +11,7 @@ class Quote(models.Model):
     author = models.CharField(max_length=100)
     content= models.TextField(max_length=250)
     date = models.DateField()
+    image= models.ImageField()
 
     def __str__(self):
         return f'{self.theme} | {self.author}'
