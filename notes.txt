@@ -10,6 +10,119 @@ python3 manage.py makemigrations
 python3 manage.py migrate
 
 
+
+
+~~~~~~~  Set up Heroku ~~~~~ Install the heroku CLI
+
+$ heroku login
+Enter your Heroku credentials.
+Email: {your heroku email}
+Password (typing will be hidden):
+Authentication successful.
+Preparing The Application
+When your project is ready for deployment here are the key steps you have to take.
+
+Add a Procfile
+Update requirements.txt
+Install Gunicorn and Heroku DJango
+Add a runtime.txt to specify the correct Python version in project root
+Configure whitenoise to serve static files
+The Procfile
+Create a file named Procfile (without a file extension) in the root of your project directory.
+
+1. touch Procfile
+
+2. web: gunicorn catcollector_project.wsgi
+
+The runtime.txt
+In terminal run..
+
+python3 -V
+this will give you your python version you are using for your project.
+
+Create a file called runtime.txt.
+
+touch runtime.txt
+In the root project directory with the following info about your python project.
+
+python-{your version number}
+
+Supported Python Runtimes
+
+Install Gunicorn and Django-On-Heroku
+Now to install a few necessary packages.
+
+In your project folder, with the environment activated, run the following..
+
+pip3 install django-on-heroku
+pip3 install gunicorn
+pip3 install whitenoise
+
+pip3 freeze > requirements.txt
+
+This will install the helper addons for heroku. Now we must add it into our project. Add to your settings.py
+
+# after "from pathlib import Path"
+import django_on_heroku
+
+# at the bottom of the file
+django_on_heroku.settings(locals())
+Now to install Gunicorn and Whitenoise!
+
+Git Add & Commit Changes
+Add all Heroku config changes
+
+git add -A
+Commit changes
+
+git commit -m "Adds heroku deployment config"
+
+Time to Deploy!
+Inside your project folder run..
+
+heroku create [project name] --buildpack heroku/python
+This will take some time as heroku sets up your heroku remote git.
+
+Once that is complete its time to add a Database to our heroku application.
+
+heroku addons:create heroku-postgresql:hobby-dev
+Now you can git add and git commit.
+
+Once that is complete you can now push to Heroku!
+
+git push heroku master
+Once that is completed we need to migrate our database just as we would on our own devices.
+
+OPEN THE HEROKU CONSOLE
+
+heroku run bash
+INSIDE THE HEROKU CONSOLE RUN
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+EXIT THE HEROKU CONSOLE
+
+exit
+And viola! Your Django application is officially online! You can run the following command to view it.
+
+heroku open
+Once you have tested your application and everything is lookging great it's time to turn off debug mode!
+
+in settings.py
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False # change this line to false
+now just add, commit and push up to heroku.
+
+
+
+
+
+
+
+
+
+
 ~~~~~~~~~~~ quotes~~~~~~~~~
 
 quotes_arr=["'If life were predictable it would cease to be life and be without flavor.' -Eleanor Roosevelt",
@@ -38,10 +151,15 @@ quotes_arr=["'If life were predictable it would cease to be life and be without 
 '"The greatest glory in living lies not in never falling, but in rising every time we fall." -Nelson Mandela',
 '"Life is really simple, but we insist on making it complicated." -Confucius',
 '"May you live all the days of your life." -Jonathan Swift',
+
 '"Life itself is the most wonderful fairy tale." -Hans Christian Andersen',
+
 '"Do not let making a living prevent you from making a life." -John Wooden',
+
 '"Life is ours to be spent, not to be saved." -D. H. Lawrence',
+
 '"Keep smiling, because life is a beautiful thing and there\'s so much to smile about." -Marilyn Monroe',
+
 '"Life is a long lesson in humility." -James M. Barrie',
 
 '"In three words I can sum up everything I\'ve learned about life: it goes on." -Robert Frost',
@@ -107,14 +225,9 @@ render_to_response(template_name, {'json_list': json_list})
 //In JS:
 var YOUR_JS_LIST = {{YOUR_LIST|safe}};
 
-from django.utils import simplejson
-json_list = simplejson.dumps(list)
-render_to_response(template_name, {'json_list': json_list})
 
- def __str__(self):
-        return f'{self.theme}'
- def __str__(self):
-        return f'{self.category}'
+
+
 
         fariba
         Al....21!

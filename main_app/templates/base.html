@@ -5,96 +5,66 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <!-- Compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@1,100&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="{% static './main.css' %}" />
-
 
     <title>QuoteCollector -{% block title %} {% endblock %}</title>
   </head>
-  <body class=
-  wrapper>
-  <video>
 
+  <body>
+    <header class="v-header container">
+      <div class="fullscreen-video-wrap">
+        <vido src="" autoplay="true" loop="true">
+        </video>
+        <div class="header-overlay">
+        <a href="#" class="btn">read more</a>
+        </div>
+    </header>
+    <section class="section section-a">
+    <div class="container">
 
-  </video>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">QuoteCollector</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/about">About</a></li>
-          <li><a href="/quotes">Quotes</a></li>
-          <li><a href="/reviews">Reviews</a></li>
-        </ul
+    </section>
+     <div id="myVideo">
+        <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+
+        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739199/13_kpzt8r_mrzw9i.mp4" type="video/webcam">
+
+        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/4_nqdsdn_boenrw.mp4" type="video/webcam">
+         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/4_nqdsdn_boenrw.mp4" type="video/webcam">
+        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739199/13_kpzt8r_mrzw9i.mp4" type="video/webcam">
+
+        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739195/5_xhz9of_fgsu7l.mp4" type="video/webcam">
+        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webm">
+
+         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739205/9_h3zaob_e6dnwa.mp4" type="video/webcam" name="flower">
+         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webm" name="girl">
+        </video>
       </div>
-    </nav>
-  <main>QuoteCollector</main>
-
-  <div class="fullscreen-bg">
-    <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
-        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739204/12q_i8przi_qawjjt.mp4" type="video/webm">
-        <source src="video/big_buck_bunny.mp4" type="video/mp4">
-        <source src="video/big_buck_bunny.ogv" type="video/ogg">
-    </video>
-</div>
-
-    <div class="section white">
-      <div class="row container">
-      <div>
-
-        <div class="wrapper">
-        <div id="date"></div>
-        <div id="time"></div>
+    </main>
+      <div class="content">
+        <h1>QuoteCollector</h1>
+        <ul><a href="/about">About</a></ul>
+        <ul><a href="/quotes">Quotes</a></ul>
+        <ul><a href="/reviews">Reviews</a></ul>
       </div>
-        <p class="grey-text text-darken-3 lighten-3">
-          '"In the end, it\'s not the years in your life that count. It\'s the
-          life in your years." -Abraham Lincoln'
-        </p>
-
-      </div>
+    <div>
+    life in your years." -Abraham Lincoln'
     </div>
-    {% comment %} <div class="parallax-container">
-      <div class="parallax">
-        <img src="images/parallax2.jpg" alt="" class="responsive-img" />
-      </div>
-    </div> {% endcomment %}
-    <main class="container">{% block content %}{% endblock %}</main>
 
-    <footer class="page-footer">
-      <div class="right">
-        All Rights Reserved, &copy; 2021 QuoteCollector &nbsp;
-      </div>
-    </footer>
-     <script src="{% static 'custom.js' %}"></script>
-    <script>
-     <!-- JQuery -->
-    <script>
-      src = 'https://code.jquery.com/jquery.com-3.3.1.min.js';
-    </script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    {% block content %}{% endblock %}
 
-    <script>
-  let nowDate = new Date()
-</script>
+    <script src="{% static 'custom.js' %}"></script>
+  <script>
+    let nowDate = new Date()
+  </script>
 
-
-
+      <footer>
+        <div class="rights">
+          All Rights Reserved, &copy; 2021 QuoteCollector
+        </div>
+      </footer>
   </body>
 </html>
-
-{% comment %} #
-python3 -m venv .env
-
-source .env/bin/activate
-
-python3 manage.py runserver
-
-python3 manage.py makemigrations
-
-python3 manage.py migrate {% endcomment %}
-
