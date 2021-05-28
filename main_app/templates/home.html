@@ -2,22 +2,6 @@
 
 <h1>Welcome to Quote Collector</h1>
 
-<header id="header" class="navbar-fixed">
-  <nav>
-    <div class="nav-wrapper">
-      <ul>
-        <li>
-          <a href="/" class="left brand-logo">&nbsp;&nbsp;QuoteCollector</a>
-        </li>
-      </ul>
-      <ul class="right">
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="{% url 'index' %}">Quotes</a></li>
-        <li><a href="{% url 'reviews' %}"></a>Reviews</li>
-      </ul>
-    </div>
-  </nav>
 </header>
 <main id="quoteDisplay" class="container"></main>
 <div>
@@ -26,13 +10,6 @@
 <button>
   <a class="btn btn-main" href="/index/">Quote</a>
 </button>
-
-{% comment %} <script>
-  {%function newQuote() { %}
-   {%let randomNum = Math.floor(Math.random() * quotes_arr.length)%}
-  {% document.getElementById('quoteDisplay').innerHTML = quotes_arr[randomNum];
-  } %}
-  </script> {% endcomment %}
 
 <script>
   document.getEventListiner('DOMContentLoaded', function () {

@@ -24,14 +24,6 @@
     </div>
   </div>
 
-{% comment %} path('quotes/<int:quote_id>/category/<int:category_id>/',views.assoc_category, name="assoc_category") {% endcomment %}
-  <div class="col s6">
-    {% comment %} <form  action="{% url 'assoc_category' quote.id category.id %}" method="POST">
-      {% csrf_token %}
-      {{category_form.as_p }}
-
-      <input type="submit" class="btn" name="button" value="Add Category"/>
-    </form> {% endcomment %}
 
     <table class="striped">
       <thead>
@@ -67,7 +59,7 @@
       <div class="card">
         <span class="card-title">
 
-          {{ category.category }}
+          {{ category.get_category_display }}
 
         </span>
       </div>
@@ -87,9 +79,8 @@
     <div class="card">
 
         <span class="card-content">
+        {{category.get_category_display}}
 
-          A <span style="color: {{ category.color }}">{{category.color}}</span>
-          {{ category.theme }}
         </span>
 
       <div class="card-action">

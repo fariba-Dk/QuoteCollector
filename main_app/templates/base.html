@@ -13,9 +13,15 @@
     />
     <link rel="stylesheet" href="{% static './main.css' %}" />
 
+
     <title>QuoteCollector -{% block title %} {% endblock %}</title>
   </head>
-  <body>
+  <body class=
+  wrapper>
+  <video>
+
+
+  </video>
     <nav>
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">QuoteCollector</a>
@@ -27,29 +33,28 @@
       </div>
     </nav>
   <main>QuoteCollector</main>
-    {% comment %} <div class="parallax-container">
-      <div class="parallax">
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel porro
-          similique reiciendis tempora. Architecto hic pariatur reiciendis
-          commodi sint molestias, deleniti autem odit ea rerum aliquid
-          aspernatur quas optio blanditiis.
-        </p> {% endcomment %}
 
-        <img src="images/parallax1.jpg" class="responsive-img" />
-      {% comment %} </div>
-    </div> {% endcomment %}
+  <div class="fullscreen-bg">
+    <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739204/12q_i8przi_qawjjt.mp4" type="video/webm">
+        <source src="video/big_buck_bunny.mp4" type="video/mp4">
+        <source src="video/big_buck_bunny.ogv" type="video/ogg">
+    </video>
+</div>
+
     <div class="section white">
       <div class="row container">
-        <h2 class="header">QuoteCollector</h2>
+      <div>
+
+        <div class="wrapper">
+        <div id="date"></div>
+        <div id="time"></div>
+      </div>
         <p class="grey-text text-darken-3 lighten-3">
           '"In the end, it\'s not the years in your life that count. It\'s the
           life in your years." -Abraham Lincoln'
         </p>
-        <p class="grey-text text-darken-3 lighten-3">
-          "'If life were predictable it would cease to be life and be without
-          flavor.' -Eleanor Roosevelt"
-        </p>
+
       </div>
     </div>
     {% comment %} <div class="parallax-container">
@@ -73,6 +78,23 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <script>
+  let nowDate = new Date()
+</script>
+
+
 
   </body>
 </html>
+
+{% comment %} #
+python3 -m venv .env
+
+source .env/bin/activate
+
+python3 manage.py runserver
+
+python3 manage.py makemigrations
+
+python3 manage.py migrate {% endcomment %}
+

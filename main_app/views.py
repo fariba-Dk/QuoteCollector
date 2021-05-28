@@ -85,7 +85,7 @@ def update_quote(request, quote_id):
     }
     return render(request,'quotes/quotes_edit.html', context)
   else:
-    form = QuoteForm(request.POST, instace=quote)
+    form = QuoteForm(request.POST, instance=quote)
     if form.is_valid():
       quote = form.save()
       return redirect('detail', quote_id)
