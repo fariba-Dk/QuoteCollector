@@ -15,6 +15,7 @@
   </head>
 
   <body>
+    <!-- navbar -->
     <div class="content-top">
       <h1 class="title">QuoteCollector</h1>
       <main>
@@ -23,30 +24,35 @@
         <ul><a class="top-right" href="/reviews">Reviews</a></ul>
       </main>
     </div>
+
     <!-- body -->
-    <div>
-       <button id="quote-button" class="btn">New Quote</button>
-
-       <!-- <p id="new-quote">Welcome! Quote of Today!!!</p> -->
-    </div>
 
 
-    {% comment %} <section class="section section-a">
-    <div class="container">
 
-    </div>
 
-    </section> {% endcomment %}
-     <div id="myVideo">
+      <div>
+        <button id="quote-button" class="btn">New Quote</button>
+        <!-- <p id="new-quote">Welcome! Quote of Today!!!</p> -->
+      </div>
 
-        <video loop muted autoplay poster="img/videoFrame.jpg" class="fullscreen-bg__video">
 
-        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webm">
+      {% comment %} <section class="section section-a">
+             </section> {% endcomment %}
 
+ <container id="myVideo">
+      <div>
+
+        <video loop muted autoplay poster="img/videoFrame.jpg"
+        class="fullscreen-bg__video">
+          <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webm">
         </video>
-        <p id="new-quote">Welcome! Quote of Today!!!</p>
       </div>
        {% block content %}{% endblock %}
+
+ <p id="new-quote" class="new-quote">Welcome! Quote of Today!!!</p>
+
+
+    </container>
 
 <!--  footer -->
       <div>
@@ -59,6 +65,7 @@
       </div>
 
     <script src="{% static 'custom.js' %}"></script>
+
 
     <script id="next">
     let quotesArr = [
@@ -99,9 +106,11 @@
           document.getElementById('new-quote').innerHTML = newQuote;
 
           });
-  
+          let nowDate = new Date();
 
         // connecting select paragraph with id of quote
+
+
     </script>
   </body>
 </html>

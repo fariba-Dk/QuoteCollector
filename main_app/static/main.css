@@ -1,24 +1,46 @@
 .fullscreen-bg__video {
-  position:absolute;
+  position:center;
   display:block;
   margin: 0 auto;
   min-width: 70%;
   min-height: 70%;
   z-index: -1;
 }
-.centered{
- position: absolute;
-  top: 50%;
-  left: 50%;
-  font-family: inherit;
-  font-size:2.2rem;
-  color: white;
-  transform: translate(-50%, -50%);
-  margin: 100px;
+.content-top{
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  font-family:arial;
+  font-size: 2rem;
+  height: 50%;
+  padding-top: 2rem;
+  position:center;
+}
+
+.container{
+  position:center;
+  text-align: center;
+  color:white;
 
 }
-.fas fa-quote-right{
-  color:black;
+.new-quote{
+
+  position:relative;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  color: white;
+
+}
+
+
+#new-quote{
+  position:relative;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  color: white;
+
 }
 .top-right{
   display:flex;
@@ -31,38 +53,15 @@
   padding: .5rem;
   padding-right:1rem;
 }
-.header-content{
-  z-index:2;
-}
-
-.header-content h1{
-  font-size: 50px;
-  margin-bottom:0;
-}
-
-.header-content p{
-  padding-bottom:2rem;
-  display:block;
-  font-size:1.5rem;
-}
-.content-top{
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  width: 100%;
-  font-family:arial;
-  font-size: 2rem;
-  height: 50%;
-  padding-top: 2rem;
-}
 
 .content {
  top: 100;
-  bottom: 0;
+  bottom: 100;
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
   width: 100%;
   padding: 0px;
-  height: 50%;
+  height: 30%;
 }
 .content-bottom {
    background: rgba(0, 0, 0, 0.5);
@@ -95,25 +94,23 @@
   color: #2a2b2f;
 }
 
-
-@media(max-width:960px){
-  .container{
-    padding-right:3rem;
-padding-left:3rem;
-}
+#date {
+  color:white;
+  text-align:center;
+  font-size:2.5em;
 }
 
-section{
-  padding:20px 0;
-}
+/* .centered{
+ position: center;
+  top: 50%;
+  left: 50%;
+  font-family: inherit;
+  font-size:5.2rem;
+  color: white;
+  transform: translate(-50%, -50%);
+  margin: 100px;
 
-.footer{
-  position:center;
-}
-
-
-
-
+} */
 
 /* *{
   box-sizing:border-box;
