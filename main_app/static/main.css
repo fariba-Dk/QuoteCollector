@@ -20,6 +20,7 @@
 .overlay h1 {
   display:flex;
   justify-content: center;
+  flex-direction: column;
 }
 .overlay {
   position:absolute;
