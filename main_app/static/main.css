@@ -1,3 +1,4 @@
+
 .fullscreen-bg__video {
   position:center;
   display:block;
@@ -16,31 +17,34 @@
   padding-top: 2rem;
   position:center;
 }
-
-.container{
-  position:center;
-  text-align: center;
-  color:white;
+.overlay h1 {
+  display:flex;
+  justify-content: center;
+}
+.overlay {
+  position:absolute;
+  display:flex;
+  justify-content: center;
+  align-items:center;
 
 }
-.new-quote{
 
-  position:relative;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
+.welcome{
   color: white;
-
+  font-size:30px;
+  margin-bottom: 0;
+  display:block;
+  padding-bottom:2rem;
 }
-
-
 #new-quote{
-  position:relative;
-  top:50%;
+  top:10px;
   left:50%;
   transform:translate(-50%, -50%);
   color: white;
-
+  font-size: 2rem;
+  position:relative;
+  display:flex;
+  align-items: center;
 }
 .top-right{
   display:flex;

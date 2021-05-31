@@ -15,54 +15,49 @@
   </head>
 
   <body>
-    <!-- navbar -->
-    <div class="content-top">
-      <h1 class="title">QuoteCollector</h1>
-      <main>
-        <ul><a class="top-right" href="/about">About</a></ul>
-        <ul><a class="top-right" href="/quotes">Quotes</a></ul>
-        <ul><a class="top-right" href="/reviews">Reviews</a></ul>
-      </main>
-    </div>
-
-    <!-- body -->
 
 
+        <!-- navbar -->
+        <nav class="content-top">
+          <h1 class="title">QuoteCollector</h1>
+          <main>
+            <ul><a class="top-right" href="/about">About</a></ul>
+            <ul><a class="top-right" href="/quotes">Quotes</a></ul>
+            <ul><a class="top-right" href="/reviews">Reviews</a></ul>
+          </main>
+        </nav>
 
+          <div class="overlay">
+           <div>
+             <h1 class="welcome">Welcome! Quote of Today</h1>
+           </div>
 
-      <div>
-        <button id="quote-button" class="btn">New Quote</button>
-        <!-- <p id="new-quote">Welcome! Quote of Today!!!</p> -->
-      </div>
-
-
-      {% comment %} <section class="section section-a">
-             </section> {% endcomment %}
-
- <container id="myVideo">
-      <div>
-
-        <video loop muted autoplay poster="img/videoFrame.jpg"
-        class="fullscreen-bg__video">
-          <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webm">
-        </video>
-      </div>
-       {% block content %}{% endblock %}
-
- <p id="new-quote" class="new-quote">Welcome! Quote of Today!!!</p>
-
-
-    </container>
-
-<!--  footer -->
-      <div>
-        <footer class="content-bottom">
-          <div>
-          All Rights Reserved, &copy; 2021 QuoteCollector
+            <h1 id="new-quote">
+            </h1>
           </div>
 
+          <!-- body -->
+
+
+          <video loop muted autoplay poster="img/videoFrame.jpg"
+          class="fullscreen-bg__video">
+            <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webm">
+          </video>
+
+        </div>
+        {% block content %}{% endblock %}
+
+        <div>
+            <button id="quote-button" class="btn">New Quote</button>
+            <!-- <p id="new-quote">Welcome! Quote of Today!!!</p> -->
+        </div>
+
+
+        <footer class="content-bottom">
+          All Rights Reserved, &copy; 2021 QuoteCollector
         </footer>
-      </div>
+   </body>
+
 
     <script src="{% static 'custom.js' %}"></script>
 
