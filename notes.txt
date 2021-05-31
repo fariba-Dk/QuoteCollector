@@ -1,15 +1,318 @@
-https://git.generalassemb.ly/faribadadko/QuoteCollector.git
-
 python3 -m venv .env
+
 source .env/bin/activate
 
 python3 manage.py runserver
+
+~~~~~~~ migration
 
 python3 manage.py makemigrations
 
 python3 manage.py migrate
 
 
+-----this is css-------------------
+.fullscreen-bg__video {
+  display:block;
+  margin: 0 auto;
+  min-width: 70%;
+  min-height: 70%;
+}
+.centered{
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: inherit;
+  font-size:2.2rem;
+  color: white;
+  transform: translate(-50%, -50%);
+  margin: 100px;
+
+}
+.fas fa-quote-right{
+  color:black;
+
+}
+.top-right{
+  display:flex;
+  justify-content:space-around;
+  justify-content:flex-end;
+  color: #f1f1f1;
+  font-size: 20px;
+  font-family: inherit;
+  align-items: right;
+  padding: .5rem;
+  padding-right:1rem;
+}
+.header-content{
+  z-index:2;
+}
+
+
+.header-content h1{
+  font-size: 50px;
+  margin-bottom:0;
+}
+
+.header-content p{
+  padding-bottom:2rem;
+  display:block;
+  font-size:1.5rem;
+}
+.content-top{
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  font-family:arial;
+  font-size: 2rem;
+  height: 50%;
+  padding-top: 2rem;
+}
+
+.content {
+ top: 100;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 0px;
+  height: 50%;
+}
+.btn {
+  position: fixed;
+  bottom: 5%;
+  right: 0px;
+  transform: translateX(-50%);
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  padding: 0.5rem 0.7em;
+  background: transparent;
+  color: #F9B31C;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .3s;
+  z-index: 11;
+}
+
+.btn:hover {
+  background: #ffffff;
+  color: #2a2b2f;
+}
+
+
+@media(max-width:960px){
+  .container{
+    padding-right:3rem;
+padding-left:3rem;
+}
+}
+
+section{
+  padding:20px 0;
+}
+
+.footer{
+  position:center;
+}
+
+-------this is the whole base.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
+    <link rel="preConnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@1,100&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static './main.css' %}"/>
+
+    <title>QuoteCollector -{% block title %} {% endblock %}</title>
+  </head>
+
+  <body>
+    <header class="v-header container">
+      <div class="fullscreen-video-wrap">
+        <vido src="" autoplay="true" loop="true">
+        </video>
+        <div class="header-overlay">
+        <a href="#" class="btn">read more</a>
+        </div>
+    </header>
+        <div class="content-top">
+          <h1 class="title">QuoteCollector</h1>
+
+          <main class="nav-right">
+            <ul><a class="top-right" href="/about">About</a></ul>
+            <ul><a class="top-right" href="/quotes">Quotes</a></ul>
+            <ul><a class="top-right" href="/reviews">Reviews</a></ul>
+          </main>
+      </div>
+
+    <div class="centered">
+      <p id="quote">Quote</p>
+    </div>
+      <!-- DO NOT REMOVE THIS DIV -->
+    </div>
+      <button id="quote-button">
+      <a class="btn" class=".btn:hover" href="/home/">New Quote</a>
+      </button>
+    </div>
+
+     <div id="myVideo">
+        <video loop muted autoplay poster="img/videoFrame.jpg" class="fullscreen-bg__video">
+
+        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739199/13_kpzt8r_mrzw9i.mp4" type="video/webcam">
+        <!-- Color blue injection -->
+         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/4_nqdsdn_boenrw.mp4" type="video/webcam">
+         <!-- The couple -->
+        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739199/13_kpzt8r_mrzw9i.mp4" type="video/webcam">
+<!-- Girl with arms open -->
+        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webcam">
+
+         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739205/9_h3zaob_e6dnwa.mp4" type="video/webcam" name="flower">
+         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webcam" name="girl">
+        </video>
+    </div>
+    <div>
+
+    
+      <footer>
+        <div class="footer">
+          All Rights Reserved, &copy; 2021 QuoteCollector
+        </div>
+      </footer>
+    </div>
+
+    {% block content %}{% endblock %}
+    <script src="{% static 'custom.js' %}"></script>
+
+    <script id="next">
+
+let quotesArr = [
+  "'If life were predictable it would cease to be life and be without flavor.' -Eleanor Roosevelt",
+  '"In the end, it\'s not the years in your life that count. It\'s the life in your years." -Abraham Lincoln',
+  '"Life is a succession of lessons which must be lived to be understood." -Ralph Waldo Emerson',
+  '"You will face many defeats in life, but never let yourself be defeated." -Maya Angelou',
+  '"Never let the fear of striking out keep you from playing the game." -Babe Ruth',
+  '"Life is never fair, and perhaps it is a good thing for most of us that it is not." -Oscar Wilde',
+  '"The only impossible journey is the one you never begin." -Tony Robbins',
+  '"In this life we cannot do great things. We can only do small things with great love." -Mother Teresa',
+  '"Only a life lived for others is a life worthwhile." -Albert Einstein',
+  '"The purpose of our lives is to be happy." -Dalai Lama',
+  '"In three words I can sum up everything I\'ve learned about life: it goes on." -Robert Frost',
+  '"Love the life you live. Live the life you love." -Bob Marley',
+  '"Life is either a daring adventure or nothing at all." -Helen Keller',
+  '"You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose." -Dr. Seuss',
+  '"Life is made of ever so many partings welded together." -Charles Dickens',
+  '"Your time is limited, so don\'t waste it living someone else\'s life. Don\'t be trapped by dogma -- which is living with the results of other people\'s thinking." -Steve Jobs',
+  '"Life is trying things to see if they work." -Ray Bradbury',
+  '"Many of life\'s failures are people who did not realize how close they were to success when they gave up." -Thomas A. Edison',
+  ]
+
+  const nextQuote = (function () {
+    let copyArr;
+    return function () {
+    if (!copyArr || !copyArr) copyArr = quotesArr.slice();
+    return copyArr.splice((Math.random() * copyArr.length) | 0, 1);
+    };
+  })();
+
+  const btn = document.getElementById("quote-button");
+  brn.addEventListener('click', () => {
+    let newQuote = nextQuote()
+  })
+    </script>
+  </body>
+
+</html>
+
+
+_______________
 
 
 ~~~~~~~  Set up Heroku ~~~~~ Install the heroku CLI
@@ -93,11 +396,13 @@ Now you can git add and git commit.
 Once that is complete you can now push to Heroku!
 
 git push heroku master
+
 Once that is completed we need to migrate our database just as we would on our own devices.
 
 OPEN THE HEROKU CONSOLE
 
 heroku run bash
+
 INSIDE THE HEROKU CONSOLE RUN
 
 python3 manage.py makemigrations
@@ -146,51 +451,12 @@ quotes_arr=["'If life were predictable it would cease to be life and be without 
 '"In this life we cannot do great things. We can only do small things with great love." -Mother Teresa',
 '"Only a life lived for others is a life worthwhile." -Albert Einstein',
 '"The purpose of our lives is to be happy." -Dalai Lama',
-'"Life is what happens when you\'re busy making other plans." -John Lennon',
-'"You only live once, but if you do it right, once is enough." -Mae West',
-'"Live in the sunshine, swim the sea, drink the wild air." -Ralph Waldo Emerson',
-'"Go confidently in the direction of your dreams! Live the life you\'ve imagined." -Henry David Thoreau',
-'"The greatest glory in living lies not in never falling, but in rising every time we fall." -Nelson Mandela',
-'"Life is really simple, but we insist on making it complicated." -Confucius',
-'"May you live all the days of your life." -Jonathan Swift',
-
-'"Life itself is the most wonderful fairy tale." -Hans Christian Andersen',
-
-'"Do not let making a living prevent you from making a life." -John Wooden',
-
-'"Life is ours to be spent, not to be saved." -D. H. Lawrence',
-
-'"Keep smiling, because life is a beautiful thing and there\'s so much to smile about." -Marilyn Monroe',
-
-'"Life is a long lesson in humility." -James M. Barrie',
-
 '"In three words I can sum up everything I\'ve learned about life: it goes on." -Robert Frost',
 '"Love the life you live. Live the life you love." -Bob Marley',
-
-
 '"Life is either a daring adventure or nothing at all." -Helen Keller',
-
-
 '"You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose." -Dr. Seuss',
-
-
-
-
 '"Life is made of ever so many partings welded together." -Charles Dickens',
-
-
-
-
-
-'"Your time is limited, so don\'t waste it living someone else\'s life. Don\'t be trapped by dogma -- which is living with the results of other people\'s thinking." -Steve Jobs',
-
-
-
-
-
-
-
-
+'"Your time is limited, so don\'t waste it living someone else\'s life. Don\'t be trapped by dogma -- which is living with the results of other people\'s thinking." -Steve Jobs'
 '"Life is trying things to see if they work." -Ray Bradbury',
 '"Many of life\'s failures are people who did not realize how close they were to success when they gave up." -Thomas A. Edison'
 ],
@@ -399,3 +665,50 @@ canvas {
         video.src = url;
         return new THREE.VideoTexture(video);
     }
+
+
+// Promise.all([
+//   loadAsync(
+//     'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739205/8_uqve8h_jwwgba.mp4'
+//   ),
+//   loadAsync(
+//     'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739205/9_h3zaob_e6dnwa.mp4'
+//   ),
+//   loadAsync(
+//     'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739210/11_cr2uom_gv8fv9.mp4'
+//   ),
+//   loadAsync(
+//     'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739204/12q_i8przi_qawjjt.mp4'
+//   ),
+//   loadAsync(
+//     'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739199/13_kpzt8r_mrzw9i.mp4'
+//   ),
+//   loadAsync(
+//     'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/4_nqdsdn_boenrw.mp4'
+//   ),
+//   loadAsync(
+//     'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739195/5_xhz9of_fgsu7l.mp4'
+//   ),
+//   loadAsync(
+//     'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4'
+//   ),
+// ]).then(result => {
+//         webgl.texturesArray = result;
+//         document.getElementById("wrapper").addEventListener("click", changeTexture, false);
+//     });
+
+//     <script>
+// function ReLoadImages(){
+//     $('img[data-lazysrc]').each( function(){
+//         //* set the img src from data-src
+//         $( this ).attr( 'src', $( this ).attr( 'data-lazysrc' ) );
+//         }
+//     );
+// }
+
+// document.addEventListener('readystatechange', event => {
+//     if (event.target.readyState === "interactive") {  //or at "complete" if you want it to execute in the most last state of window.
+//         ReLoadImages();
+//     }
+// });
+// </script>

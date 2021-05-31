@@ -1,49 +1,30 @@
-let quoteArr =['you better get better quotes','dont count your eggs too soon','okie dokie smokie','bye','good luck','sionara', 'babyboomers','tomorrow is a better day', 'dont rain on my prade']
+let quotesArr = [
+  "'If life were predictable it would cease to be life and be without flavor.' -Eleanor Roosevelt",
+  '"In the end, it\'s not the years in your life that count. It\'s the life in your years." -Abraham Lincoln',
+  '"Life is a succession of lessons which must be lived to be understood." -Ralph Waldo Emerson',
+  '"You will face many defeats in life, but never let yourself be defeated." -Maya Angelou',
+  '"Never let the fear of striking out keep you from playing the game." -Babe Ruth',
+  '"Life is never fair, and perhaps it is a good thing for most of us that it is not." -Oscar Wilde',
+  '"The only impossible journey is the one you never begin." -Tony Robbins',
+  '"In this life we cannot do great things. We can only do small things with great love." -Mother Teresa',
+  '"Only a life lived for others is a life worthwhile." -Albert Einstein',
+  '"The purpose of our lives is to be happy." -Dalai Lama',
+  '"In three words I can sum up everything I\'ve learned about life: it goes on." -Robert Frost',
+  '"Love the life you live. Live the life you love." -Bob Marley',
+  '"Life is either a daring adventure or nothing at all." -Helen Keller',
+  '"You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose." -Dr. Seuss',
+  '"Life is made of ever so many partings welded together." -Charles Dickens',
+  "\"Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma -- which is living with the results of other people's thinking.\" -Steve Jobs",
+  '"Life is trying things to see if they work." -Ray Bradbury',
+  '"Many of life\'s failures are people who did not realize how close they were to success when they gave up." -Thomas A. Edison',
+];
 
-console.log(quoteArr)
-
-Promise.all([
-  loadAsync(
-    'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739205/8_uqve8h_jwwgba.mp4'
-  ),
-  loadAsync(
-    'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739205/9_h3zaob_e6dnwa.mp4'
-  ),
-  loadAsync(
-    'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739210/11_cr2uom_gv8fv9.mp4'
-  ),
-  loadAsync(
-    'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739204/12q_i8przi_qawjjt.mp4'
-  ),
-  loadAsync(
-    'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739199/13_kpzt8r_mrzw9i.mp4'
-  ),
-  loadAsync(
-    'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/4_nqdsdn_boenrw.mp4'
-  ),
-  loadAsync(
-    'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739195/5_xhz9of_fgsu7l.mp4'
-  ),
-  loadAsync(
-    'https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4'
-  ),
-]).then(result => {
-        webgl.texturesArray = result;
-        document.getElementById("wrapper").addEventListener("click", changeTexture, false);
-    });
-
-    <script>
-function ReLoadImages(){
-    $('img[data-lazysrc]').each( function(){
-        //* set the img src from data-src
-        $( this ).attr( 'src', $( this ).attr( 'data-lazysrc' ) );
-        }
-    );
-}
-
-document.addEventListener('readystatechange', event => {
-    if (event.target.readyState === "interactive") {  //or at "complete" if you want it to execute in the most last state of window.
-        ReLoadImages();
-    }
-});
-</script>
+const nextWord = (function () {
+  let copyArr;
+  return function () {
+    if (!copyArr || !copyArr) copyArr = quotesArr.slice();
+    return copyArr.splice((Math.random() * copyArr.length) | 0, 1);
+  };
+})();
+nextWord();
+console.log(nextWord());

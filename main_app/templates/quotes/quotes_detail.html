@@ -1,5 +1,3 @@
-{% extends 'base.html' %} {% block content %}
-
 <h2>Quote Detail</h2>
 
 <div class="row">
@@ -103,21 +101,5 @@
 
   </div>
 </div>
-<script>
-  function newQuote() {
-   let randomNum = Math.floor(Math.random() * quotes_arr.length)
-  document.getElementById('quoteDisplay').innerHTML = quotes_arr[randomNum];
-  }
-  </script>
 
-<script>
-  document.getEventListiner('DOMContentLoaded', function () {
-    const choices = document.querySelectorAll('select');
-    const dates = document.querySelectorAll('.datepicker');
-
-    const choicesInstances = M.FormSelect.init(meals);
-    const dateInstances = M.Datepicker.init(dates, options);
-  });
-</script>
-{% endblock%}
 

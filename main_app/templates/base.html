@@ -15,56 +15,105 @@
   </head>
 
   <body>
-    <header class="v-header container">
-      <div class="fullscreen-video-wrap">
-        <vido src="" autoplay="true" loop="true">
-        </video>
-        <div class="header-overlay">
-        <a href="#" class="btn">read more</a>
-        </div>
-    </header>
-    <section class="section section-a">
+    <div class="content-top">
+      <h1 class="title">QuoteCollector</h1>
+      <main>
+        <ul><a class="top-right" href="/about">About</a></ul>
+        <ul><a class="top-right" href="/quotes">Quotes</a></ul>
+        <ul><a class="top-right" href="/reviews">Reviews</a></ul>
+      </main>
+    </div>
+    <!-- body -->
+    <div>
+       <button id="quote-button" class="btn">New Quote</button>
+
+       <!-- <p id="new-quote">Welcome! Quote of Today!!!</p> -->
+    </div>
+
+
+    {% comment %} <section class="section section-a">
     <div class="container">
 
-    </section>
-     <div id="myVideo">
-        <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+    </div>
 
-        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739199/13_kpzt8r_mrzw9i.mp4" type="video/webcam">
+    </section> {% endcomment %}
+     <div id="myVideo">
+
+        <video loop muted autoplay poster="img/videoFrame.jpg" class="fullscreen-bg__video">
+
+        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webm">
+
+        </video>
+        <p id="new-quote">Welcome! Quote of Today!!!</p>
+      </div>
+       {% block content %}{% endblock %}
+
+<!--  footer -->
+      <div>
+        <footer class="content-bottom">
+          <div>
+          All Rights Reserved, &copy; 2021 QuoteCollector
+          </div>
+
+        </footer>
+      </div>
+
+    <script src="{% static 'custom.js' %}"></script>
+
+    <script id="next">
+    let quotesArr = [
+        "'If life were predictable it would cease to be life and be without flavor.' -Eleanor Roosevelt",
+        '"In the end, it\'s not the years in your life that count. It\'s the life in your years." -Abraham Lincoln',
+        '"Life is a succession of lessons which must be lived to be understood." -Ralph Waldo Emerson',
+        '"You will face many defeats in life, but never let yourself be defeated." -Maya Angelou',
+        '"Never let the fear of striking out keep you from playing the game." -Babe Ruth',
+        '"Life is never fair, and perhaps it is a good thing for most of us that it is not." -Oscar Wilde',
+        '"The only impossible journey is the one you never begin." -Tony Robbins',
+        '"In this life we cannot do great things. We can only do small things with great love." -Mother Teresa',
+        '"Only a life lived for others is a life worthwhile." -Albert Einstein',
+        '"The purpose of our lives is to be happy." -Dalai Lama',
+        '"In three words I can sum up everything I\'ve learned about life: it goes on." -Robert Frost',
+        '"Love the life you live. Live the life you love." -Bob Marley',
+        '"Life is either a daring adventure or nothing at all." -Helen Keller',
+        '"You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose." -Dr. Seuss',
+        '"Life is made of ever so many partings welded together." -Charles Dickens',
+        '"Your time is limited, so don\'t waste it living someone else\'s life. Don\'t be trapped by dogma -- which is living with the results of other people\'s thinking." -Steve Jobs',
+        '"Life is trying things to see if they work." -Ray Bradbury',
+        '"Many of life\'s failures are people who did not realize how close they were to success when they gave up." -Thomas A. Edison'
+        ]
+
+
+        const nextQuote = (function () {
+          let copyArr;
+          return function () {
+          if (!copyArr || !copyArr) copyArr = quotesArr.slice();
+          return copyArr.splice((Math.random() * copyArr.length) | 0, 1);
+          };
+        })();
+          const btn = document.getElementById("quote-button")
+          btn.addEventListener('click', () => {
+
+          let newQuote = nextQuote()
+          console.log(nextQuote())
+          document.getElementById('new-quote').innerHTML = '';
+          document.getElementById('new-quote').innerHTML = newQuote;
+
+          });
+  
+
+        // connecting select paragraph with id of quote
+    </script>
+  </body>
+</html>
+
+
+
+         <!-- <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739205/9_h3zaob_e6dnwa.mp4" type="video/webcam" name="flower">
+         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webcam" name="girl">
+         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739199/13_kpzt8r_mrzw9i.mp4" type="video/webcam">
 
         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/4_nqdsdn_boenrw.mp4" type="video/webcam">
          <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/4_nqdsdn_boenrw.mp4" type="video/webcam">
         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739199/13_kpzt8r_mrzw9i.mp4" type="video/webcam">
 
-        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739195/5_xhz9of_fgsu7l.mp4" type="video/webcam">
-        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webm">
-
-         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739205/9_h3zaob_e6dnwa.mp4" type="video/webcam" name="flower">
-         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webm" name="girl">
-        </video>
-      </div>
-    </main>
-      <div class="content">
-        <h1>QuoteCollector</h1>
-        <ul><a href="/about">About</a></ul>
-        <ul><a href="/quotes">Quotes</a></ul>
-        <ul><a href="/reviews">Reviews</a></ul>
-      </div>
-    <div>
-    life in your years." -Abraham Lincoln'
-    </div>
-
-    {% block content %}{% endblock %}
-
-    <script src="{% static 'custom.js' %}"></script>
-  <script>
-    let nowDate = new Date()
-  </script>
-
-      <footer>
-        <div class="rights">
-          All Rights Reserved, &copy; 2021 QuoteCollector
-        </div>
-      </footer>
-  </body>
-</html>
+        <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739195/5_xhz9of_fgsu7l.mp4" type="video/webcam">-->
