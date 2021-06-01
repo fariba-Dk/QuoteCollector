@@ -1,19 +1,112 @@
-{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@1,100&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static './main.css' %}" />
 
-{% block title %}
+    <title>QuoteCollector -{% block title %} {% endblock %}</title>
+  </head>
 
-{% endblock %}
+  <body>
 
-{% block content %}
 
-  <h1>About the Cat Collector</h1>
-  <hr />
-  <p>Hire the Cat Collector!</p>
+        <!-- navbar -->
+        <nav class="content-top">
+          <h1 class="title">About QuoteCollector</h1>
+          <main>
+            <ul><a class="top-right" href="/about">Home</a></ul>
+            <ul><a class="top-right" href="/quotes">Quotes</a></ul>
+            <ul><a class="top-right" href="/reviews">Reviews</a></ul>
+          </main>
+        </nav>
 
-{% endblock %}
+          <div class="overlay">
+            <div>
+             <main id="quoteDisplay" class="content"></main>
+            </div>
+            <h1 id="new-quote"></h1>
+          </div>
+
+          <!-- body -->
+
+          <video loop muted autoplay poster="img/videoFrame.jpg"
+          class="fullscreen-bg__video">
+         <source src="https://res.cloudinary.com/dbux8pdyi/video/upload/v1617739197/6_v9cxwu_w3vtwk.mp4" type="video/webm">
+
+          </video>
+
+        </div>
+        {% block content %}{% endblock %}
+
+        <div>
+            <button id="quote-button" class="btn">New Quote</button>
+            <!-- <p id="new-quote">Welcome! Quote of Today!!!</p> -->
+        </div>
+
+
+        <footer class="content-bottom">
+          All Rights Reserved, &copy; 2021 QuoteCollector
+        </footer>
+   </body>
+
+    <script id="next">
+    let quotesArr = [
+        "'If life were predictable it would cease to be life and be without flavor.' -Eleanor Roosevelt",
+        '"In the end, it\'s not the years in your life that count. It\'s the life in your years." -Abraham Lincoln',
+        '"Life is a succession of lessons which must be lived to be understood." -Ralph Waldo Emerson',
+        '"You will face many defeats in life, but never let yourself be defeated." -Maya Angelou',
+        '"Never let the fear of striking out keep you from playing the game." -Babe Ruth',
+        '"Life is never fair, and perhaps it is a good thing for most of us that it is not." -Oscar Wilde',
+        '"The only impossible journey is the one you never begin." -Tony Robbins',
+        '"In this life we cannot do great things. We can only do small things with great love." -Mother Teresa',
+        '"Only a life lived for others is a life worthwhile." -Albert Einstein',
+        '"The purpose of our lives is to be happy." -Dalai Lama',
+        '"In three words I can sum up everything I\'ve learned about life: it goes on." -Robert Frost',
+        '"Love the life you live. Live the life you love." -Bob Marley',
+        '"Life is either a daring adventure or nothing at all." -Helen Keller',
+        '"You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose." -Dr. Seuss',
+        '"Life is made of ever so many partings welded together." -Charles Dickens',
+        '"Your time is limited, so don\'t waste it living someone else\'s life. Don\'t be trapped by dogma -- which is living with the results of other people\'s thinking." -Steve Jobs',
+        '"Life is trying things to see if they work." -Ray Bradbury',
+        '"Many of life\'s failures are people who did not realize how close they were to success when they gave up." -Thomas A. Edison'
+        ]
+
+
+        const nextQuote = (function () {
+          let copyArr;
+          return function () {
+          if (!copyArr || !copyArr) copyArr = quotesArr.slice();
+          return copyArr.splice((Math.random() * copyArr.length) | 0, 1);
+          };
+        })();
+          const btn = document.getElementById("quote-button")
+          btn.addEventListener('click', () => {
+
+          let newQuote = nextQuote()
+          console.log(nextQuote())
+          document.getElementById('new-quote').innerHTML = '';
+          document.getElementById('new-quote').innerHTML = newQuote;
+
+          });
+          let nowDate = new Date();
+
+        // connecting select paragraph with id of quote
+
+
+    </script>
   </body>
 </html>
 
-{ % endblock %}
+
+
+
+
 
 

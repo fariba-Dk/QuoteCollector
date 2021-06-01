@@ -1,11 +1,11 @@
+{% extends 'base.html' %} {% block content %}
 
-
-<h2>Quotes List</h2>
+<h1>Quotes List</h1>
 
 {% for quote in quotes %}
 
 <a href="/quotes/{{ quote.id }}">
-  {% comment %} < href="{% url 'detail' cat.id %}"> {% endcomment %}
+ 
   <div class="card">
     <div class="card-content">
       <span class="card-title">{{ quote.theme }}</span>
@@ -16,4 +16,6 @@
     </div>
   </div>
 </a>
-{% endfor %} 
+{% endfor %}
+
+{% endblock %}

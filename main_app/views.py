@@ -4,20 +4,24 @@ from .models import Quote, Category
 from .forms import QuoteForm, CategoryForm
 
 
+# class Quote:
+#   def __init__(self, theme, author, content, date):
+#     self.theme = theme
+#     self.author = author
+#     self.content = content
+#     self.date = date
 
-#RANDOM Quote
-quotes_arr =[]
-
+quotesArr = []
 
 #HOME PAGE
 def home(request):
-  context = {'quotes_arr': quotes_arr }
+  context = {'quotesArr': quotesArr }
 
   return render(request, 'home.html',context)
 
 #ABOUT
 def about(request):
-  context = {'quotes_arr': quotes_arr }
+  context = {'quotesArr': quotesArr }
 
 
   return render(request, 'about.html', context)
@@ -28,11 +32,11 @@ def reviews(request):
 
 #INDEX QUOTES
 def index(request):
-  quotes = Quote.objects.all()
-  print(quotes)
+  quote = Quote.objects.all()
+  print(quote)
 
   #template
-  context = { 'quotes': quotes }
+  context = { 'quotes': quote }
   #retrieve a template and send HTML back
   return render(request, 'quotes/quotes_index.html', context) #{'quotes':quotes
 
